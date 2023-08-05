@@ -1,0 +1,32 @@
+{
+  "version": "0.1",
+  "manifest_version": 3,
+  "name": "MSIB Bookmarker",
+  "description": "Bookmark posisi magang dan course Studi Independen di website Kampus Merdeka",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://kampusmerdeka.kemdikbud.go.id/*",
+        "https://kampusmerdeka.kemdikbud.go.id/"
+      ],
+      "js": [
+        "dist/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "dist/index.html"
+  },
+  "icons" :{
+    "16": "dist/icons/icon16.png",
+    "48": "dist/icons/icon48.png",
+    "128": "dist/icons/icon128.png"
+  }
+}

@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Sans Pro', sans-serif;
+  padding: 12px 12px;
+  width: 460px;
+  background-color: rgb(247, 247, 247);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+h2 {
+  padding: 10px;
+  font-size: 16px;
+  flex: 1;
+  text-align: left;
+}
+
+img[alt="icon"] {
+  height: 14px;
+  width: auto;
+}
+
+.no-data {
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(107, 107, 107, 0.66);
+}
+
+.accordion-container {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.accordion-toggler {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}
+
+.accordion-toggler:nth-child(3) {
+  border-top: 1px solid gray;
+}
+
+.toggler-icon {
+  height: 40px;
+  width: 40px;
+  background-image: url("./assets/images/arrowup.svg");
+  background-size: cover;
+  background-position: center;
+  transition: all 500ms ease-in-out;
+}
+
+.flip {
+  transform: rotateX(180deg);
+}
+
+.program-list {
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 1.5s ease-in-out;
+  max-height: 800px;
+}
+
+.hide {
+  max-height: 0;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.program-list li {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+  transition: all 200ms linear;
+}
+
+.program-list a {
+  display: flex;
+  padding: 8px 8px;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  text-decoration: none;
+  flex: 1;
+}
+
+.program-list li:hover {
+  background-color: aliceblue;
+}
+
+.program-list a p:first-child {
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: underline;
+  margin-bottom: 4px;
+}
+
+.program-list img {
+  height: auto;
+  width: 42px;
+}
+
+
+.delete-btn {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms linear;
+}
+
+.delete-btn:hover {
+  background-color: whitesmoke;
+}
+
+.delete-btn img {
+  width: 26px;
+  height: auto;
+}

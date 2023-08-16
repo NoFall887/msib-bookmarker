@@ -140,5 +140,41 @@ const observer = new MutationObserver((mutations) => {
     }
 });
 
+function findLinkElementByUrl(url: string) {
+    const itemsImageElement = document.querySelectorAll(".image-0-0-1399");
+
+    const items: HTMLDivElement[] = Array.from(itemsImageElement).map((image) => {
+        return image.closest(".shadow-0-0-1435")!;
+    });
+
+    for (const item of items) {
+        const itemUrl = (item.querySelector(":scope p:nth-child(1)>a") as HTMLLinkElement)
+            .href;
+        if (itemUrl === url) {
+            return item;
+        }
+    }
+
+    return false;
+}
+
+// Listen for messages from the extension's popup
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    // Check if the message is of the correct format (contains a URL)
+
+    if (message.url) {
+        // Find the corresponding link element in the webpage's DOM
+        const linkElement = findLinkElementByUrl(message.url);
+
+        // Trigger a click event on the link element
+        if (linkElement) {
+            linkElement.click();
+            return;
+        }
+
+        sendResponse({ message: false });
+    }
+});
+
 const config = { childList: true, subtree: true };
 observer.observe(targetNode, config);
